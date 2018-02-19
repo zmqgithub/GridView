@@ -53,6 +53,21 @@
 
 -(void)selectedItem:(id)sender{
     NSLog(@"sender %ld",[sender tag]);
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Selected"
+                                 message:[NSString stringWithFormat:@"you have selected %ld",[sender tag]]
+                                 preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"OK"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //Handle your yes please button action here
+                                }];
+    
+    
+    [alert addAction:yesButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(UIColor*)randomColor{
